@@ -1,99 +1,96 @@
 {
     "properties": {
-        
         "default": {
-        "type": [
-            "null",
-            "boolean"
-        ]
+            "type": [
+                "null",
+                "boolean"
+            ]
         },
-        
         "created_at": {
-        "type": [
-            "null",
-            "string"
-        ],
-        "format": "date-time"
+            "type": [
+                "null",
+                "string"
+            ],
+            "format": "date-time"
         },
-
         "custom_field_options": {
             "items": {
-              "properties": {
-                "name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "value": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
-                },
-                "id": {
-                  "type": [
-                    "null",
-                    "integer"
-                  ]
-                },
-                "default": {
-                  "type": [
-                    "null",
-                    "boolean"
-                  ]
-                },
-                "raw_name": {
-                  "type": [
-                    "null",
-                    "string"
-                  ]
+                "properties": {
+                    "name": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "value": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "id": {
+                        "type": [
+                            "null",
+                            "integer"
+                        ]
+                    },
+                    "default": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "raw_name": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
                 }
-              }
             }
         },
         "description": {
             "type": [
-              "null",
-              "string"
+                "null",
+                "string"
             ]
-          },
+        },
         "id": {
-			"type": [
-				"null",
-				"integer"
-			]
-		},
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
         "key": {
-			"type": [
-				"null",
-				"string"
-			]
-		},
+            "type": [
+                "null",
+                "string"
+            ]
+        },
         "position": {
-			"type": [
-				"null",
-				"integer"
-			]
-		},
+            "type": [
+                "null",
+                "integer"
+            ]
+        },
         "raw_title": {
             "type": [
-              "null",
-              "string"
+                "null",
+                "string"
             ]
-          },
+        },
         "raw_description": {
-        "type": [
-            "null",
-            "string"
-        ]
+            "type": [
+                "null",
+                "string"
+            ]
         },
         "regexp_for_validation": {
             "type": [
                 "null",
                 "string"
             ]
-            },
+        },
         "relationship_target_type": {
             "type": [
                 "null",
@@ -136,6 +133,5 @@
                 "string"
             ]
         }
-  }
+    }
 }
-  
