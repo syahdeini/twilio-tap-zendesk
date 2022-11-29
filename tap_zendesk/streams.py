@@ -187,6 +187,31 @@ class OrganizationMemberships(Stream):
                 else:
                     LOGGER.info('Received organization_membership record with no id or updated_at, skipping...')
 
+class OrganizationFields(Stream):
+    name = "organization_fields"
+    replication_method = "INCREMENTAL"
+    replication_key = "updated_at"
+
+    def sync(self, state):
+        bookmark = self.get_bookmark(state)
+
+        fields = self.client.organization_field()
+        for field in fields:
+            if field.updated_at:
+                if utils.strptime_with_tz(field.updated_at) >= bookmark:
+                    # NB: We don't trust that the records come back ordered by
+                    # updated_at (we've observed out-of-order records),
+                    # so we can't save state until we've seen all records
+                    self.update_bookmark(state, field.updated_at)
+                    yield (self.stream, field) 
+            else:
+                if field.id:
+                    LOGGER.info('organization_field record with id: ' + str(field.id) +
+                                ' does not have an updated_at field so it will be syncd...')
+                    yield (self.stream, field)
+                else:
+                    LOGGER.info('Received organization_field record with no id or updated_at, skipping...')
+
 class Users(Stream):
     name = "users"
     replication_method = "INCREMENTAL"
@@ -610,6 +635,7 @@ STREAMS = {
     "users": Users,
     "organizations": Organizations,
     "organization_memberships": OrganizationMemberships,
+    "organization_fields": OrganizationFields,
     "ticket_audits": TicketAudits,
     "ticket_comments": TicketComments,
     "ticket_fields": TicketFields,
