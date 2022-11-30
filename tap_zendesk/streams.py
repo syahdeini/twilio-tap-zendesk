@@ -195,7 +195,7 @@ class OrganizationFields(Stream):
     def sync(self, state):
         bookmark = self.get_bookmark(state)
 
-        fields = self.client.organization_field()
+        fields = self.client.organization_fields()
         for field in fields:
             if field.updated_at:
                 if utils.strptime_with_tz(field.updated_at) >= bookmark:
