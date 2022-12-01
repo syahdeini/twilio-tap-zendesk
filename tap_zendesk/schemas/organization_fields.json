@@ -1,6 +1,6 @@
 {
     "properties": {
-        "default": {
+        "active": {
             "type": [
                 "null",
                 "boolean"
@@ -125,7 +125,8 @@
             "type": [
                 "null",
                 "string"
-            ]
+            ],
+            "format": "date-time"
         },
         "url": {
             "type": [
